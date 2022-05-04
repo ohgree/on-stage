@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 
   bool isJumping;
   bool isDodging;
+  bool isBorder;
 
   Vector3 moveVec;
   Vector3 dodgeVec;
@@ -29,8 +30,19 @@ public class Player : MonoBehaviour {
     anim = GetComponentInChildren<Animator>();
   }
 
+  void FreezeRotation() {
+    rigid.angularVelocity = Vector3.zero;
+  }
+
+  void StopOnWall() {
+    Debug.DrawRay(transform.position + Vector3.up * 0.5f, transform.forward, Color.green);
+    isBorder = Physics.Raycast(transform.position + Vector3.up * 0.5f, transform.forward, 1, LayerMask.GetMask("Wall"));
+  }
+
   // Update is called once per frame
   void Update() {
+    FreezeRotation();
+    StopOnWall();
     GetInput();
     Move();
     Turn();
@@ -49,7 +61,9 @@ public class Player : MonoBehaviour {
   void Move() {
     moveVec = isDodging ? dodgeVec : new Vector3(hAxis, 0, vAxis).normalized;
 
-    transform.position += moveVec * speed * Time.deltaTime * (wDown ? 0.3f : 1.0f);
+    if (!isBorder) {
+      transform.position += moveVec * speed * Time.deltaTime * (wDown ? 0.3f : 1.0f);
+    }
 
     anim.SetBool("isRunning", moveVec != Vector3.zero);
     anim.SetBool("isWalking", wDown);
