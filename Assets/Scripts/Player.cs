@@ -35,19 +35,22 @@ public class Player : MonoBehaviour {
   }
 
   void StopOnWall() {
-    Debug.DrawRay(transform.position + Vector3.up * 0.25f, transform.forward * 0.5f, Color.green);
-    isBorder = Physics.Raycast(transform.position + Vector3.up * 0.25f, transform.forward, 0.5f, LayerMask.GetMask("Wall"));
+    Debug.DrawRay(transform.position + Vector3.up * 0.25f, transform.forward * 0.75f, Color.green);
+    isBorder = Physics.Raycast(transform.position + Vector3.up * 0.25f, transform.forward, 0.75f, LayerMask.GetMask("Wall"));
   }
 
   // Update is called once per frame
   void Update() {
-    FreezeRotation();
-    StopOnWall();
     GetInput();
     Move();
     Turn();
     Jump();
     Dodge();
+  }
+
+  private void FixedUpdate() {
+    FreezeRotation();
+    StopOnWall();
   }
 
   void GetInput() {
