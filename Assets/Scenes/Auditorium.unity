@@ -1078,6 +1078,10 @@ PrefabInstance:
       value: Auditorium02_Wooden_Wall01
       objectReference: {fileID: 0}
     - target: {fileID: 2423728706494792013, guid: fb5c8ce383ce6dc4dae679d83d0020fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423728706494792013, guid: fb5c8ce383ce6dc4dae679d83d0020fc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -1708,6 +1712,10 @@ PrefabInstance:
     - target: {fileID: 5021842357032751050, guid: ad167490ea875f944994219167a4e783, type: 3}
       propertyPath: m_Name
       value: Auditorium02_Stage_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021842357032751050, guid: ad167490ea875f944994219167a4e783, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5021842357032751050, guid: ad167490ea875f944994219167a4e783, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9241,6 +9249,10 @@ PrefabInstance:
       value: Auditorium02_Staircase_Wall
       objectReference: {fileID: 0}
     - target: {fileID: 8738243172655746504, guid: 045e3417c3edf7c409bf0f3feaf28bc3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738243172655746504, guid: 045e3417c3edf7c409bf0f3feaf28bc3, type: 3}
       propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
@@ -9416,6 +9428,10 @@ PrefabInstance:
     - target: {fileID: 7483106628284266515, guid: e11f9e56dd57db0469d643bef03906ed, type: 3}
       propertyPath: m_Name
       value: Auditorium02_Stage_Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483106628284266515, guid: e11f9e56dd57db0469d643bef03906ed, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7483106628284266515, guid: e11f9e56dd57db0469d643bef03906ed, type: 3}
       propertyPath: m_TagString
@@ -10739,6 +10755,10 @@ PrefabInstance:
     - target: {fileID: 3153875522129469670, guid: 3d20d6af61ca399439a57155ebb986ea, type: 3}
       propertyPath: m_Name
       value: Auditorium02_Wooden_Wall02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153875522129469670, guid: 3d20d6af61ca399439a57155ebb986ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3153875522129469670, guid: 3d20d6af61ca399439a57155ebb986ea, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12479,6 +12499,10 @@ PrefabInstance:
     - target: {fileID: 620894997879723721, guid: 1426c874f61f7b6468ae98757c9fbdc3, type: 3}
       propertyPath: m_Name
       value: Auditorium02_Outer_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 620894997879723721, guid: 1426c874f61f7b6468ae98757c9fbdc3, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 620894997879723721, guid: 1426c874f61f7b6468ae98757c9fbdc3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18481,6 +18505,10 @@ PrefabInstance:
       value: Auditorium02_Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6623209039131486846, guid: 9c7a325d74e6313448a921460ef251f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623209039131486846, guid: 9c7a325d74e6313448a921460ef251f7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -18814,6 +18842,10 @@ PrefabInstance:
     - target: {fileID: 1619024736382503906, guid: de8127d650ffe6341bb248ca2b0438e2, type: 3}
       propertyPath: m_Name
       value: Auditorium02_Wooden_Wall03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619024736382503906, guid: de8127d650ffe6341bb248ca2b0438e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1619024736382503906, guid: de8127d650ffe6341bb248ca2b0438e2, type: 3}
       propertyPath: m_StaticEditorFlags
