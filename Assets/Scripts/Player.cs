@@ -8,35 +8,86 @@ public class Player : MonoBehaviour {
   float hAxis;
   float vAxis;
   bool wDown;
+  bool jDown;
+  bool dDown;
+
+  bool isJumping;
+  bool isDodging;
 
   Vector3 moveVec;
+  Vector3 dodgeVec;
 
   Animator anim;
+  Rigidbody rigid;
 
 
   // Start is called before the first frame update
   void Start() { }
 
   private void Awake() {
+    rigid = GetComponent<Rigidbody>();
     anim = GetComponentInChildren<Animator>();
   }
 
   // Update is called once per frame
   void Update() {
     GetInput();
-    moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-
-    transform.position += moveVec * speed * Time.deltaTime * (wDown ? 0.3f : 1.0f);
-
-    anim.SetBool("isRunning", moveVec != Vector3.zero);
-    anim.SetBool("isWalking", wDown);
-
-    transform.LookAt(transform.position + moveVec);
+    Move();
+    Turn();
+    Jump();
+    Dodge();
   }
 
   void GetInput() {
     hAxis = Input.GetAxisRaw("Horizontal");
     vAxis = Input.GetAxisRaw("Vertical");
     wDown = Input.GetButton("Walk");
+    jDown = Input.GetButtonDown("Jump");
+    dDown = Input.GetButtonDown("Dodge");
+  }
+
+  void Move() {
+    moveVec = isDodging ? dodgeVec : new Vector3(hAxis, 0, vAxis).normalized;
+
+    transform.position += moveVec * speed * Time.deltaTime * (wDown ? 0.3f : 1.0f);
+
+    anim.SetBool("isRunning", moveVec != Vector3.zero);
+    anim.SetBool("isWalking", wDown);
+  }
+
+  void Turn() {
+    transform.LookAt(transform.position + moveVec);
+  }
+
+  void Jump() {
+    if (jDown && !isJumping && !isDodging) {
+      rigid.AddForce(Vector3.up * 7, ForceMode.Impulse);
+      anim.SetBool("isJumping", true);
+      anim.SetTrigger("doJump");
+      isJumping = true;
+    }
+  }
+
+  void Dodge() {
+    if (dDown && moveVec != Vector3.zero && !isJumping && !isDodging) {
+      dodgeVec = moveVec;
+      speed *= 2.5f;
+      anim.SetTrigger("doDodge");
+      isDodging = true;
+
+      Invoke("DodgeOut", 0.6f);
+    }
+  }
+
+  void DodgeOut() {
+    speed *= 0.4f;
+    isDodging = false;
+  }
+
+  void OnCollisionEnter(Collision collision) {
+    if (collision.gameObject.tag == "Floor") {
+      anim.SetBool("isJumping", false);
+      isJumping = false;
+    }
   }
 }
