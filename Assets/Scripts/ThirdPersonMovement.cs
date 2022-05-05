@@ -37,6 +37,7 @@ public class ThirdPersonMovement : MonoBehaviour {
       transform.rotation = Quaternion.Euler(0f, angle, 0f);
       moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
+      // Dodge
       if (Input.GetButtonDown("Dodge") && !isJumping && !isDodging) {
         speed *= dodgeSpeedMultiplier;
         animator.SetTrigger("dodge");
@@ -45,23 +46,23 @@ public class ThirdPersonMovement : MonoBehaviour {
       }
     }
 
+    // Gravity
     ySpeed += Physics.gravity.y * gravityMultiplier * Time.deltaTime;
     if (controller.isGrounded) {
-      ySpeed = 0f;
-
+      ySpeed = 0f; // Reset gravity if on ground
       isJumping = false;
       animator.SetBool("isJumping", false);
     }
-    if (Input.GetButtonDown("Jump") && !isJumping) {
-      ySpeed += Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
 
+    // Jump
+    if (Input.GetButtonDown("Jump") && !isJumping && !isDodging) {
+      ySpeed = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
       isJumping = true;
       animator.SetBool("isJumping", true);
       animator.SetTrigger("jump");
     }
     moveDir.y = ySpeed;
 
-    // deltaTime: Framerate-independent
     controller.Move(moveDir * speed * Time.deltaTime);
     animator.SetBool("isMoving", direction != Vector3.zero);
   }
