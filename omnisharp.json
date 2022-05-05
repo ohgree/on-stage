@@ -1,5 +1,10 @@
 {
   "FormattingOptions": {
+    "newLine": "\n",
+    "useTabs": false,
+    "tabSize": 2,
+    "indentationSize": 2,
+
     "NewLinesForBracesInLambdaExpressionBody": false,
     "NewLinesForBracesInAnonymousMethods": false,
     "NewLinesForBracesInAnonymousTypes": false,
@@ -9,8 +14,12 @@
     "NewLinesForBracesInProperties": false,
     "NewLinesForBracesInObjectCollectionArrayInitializers": false,
     "NewLinesForBracesInAccessors": false,
+
     "NewLineForElse": false,
     "NewLineForCatch": false,
-    "NewLineForFinally": false
+    "NewLineForFinally": false,
+    "NewLineForMembersInObjectInit": false,
+    "NewLineForMembersInAnonymousTypes": false,
+    "NewLineForClausesInQuery": false
   }
 }
