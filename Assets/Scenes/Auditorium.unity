@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13527,7 +13527,7 @@ GameObject:
   - component: {fileID: 1773085476}
   - component: {fileID: 1773085478}
   m_Layer: 0
-  m_Name: Screen2D
+  m_Name: Main Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13578,7 +13578,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.125, y: 2.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -13613,6 +13613,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 46d1bf559ebf044c29ac081c2ce68ff3, type: 3}
   - {fileID: 21300000, guid: 35a2df14f096743c2b3d728806e78f1a, type: 3}
+  - {fileID: 21300000, guid: c5b300723cec747ee85b58f3d0f19646, type: 3}
+  - {fileID: 21300000, guid: 0716ee16d6090489f96758ac64289088, type: 3}
 --- !u!850595691 &1811605958
 LightingSettings:
   m_ObjectHideFlags: 0
