@@ -5,23 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using Cinemachine;
 
-public class NetworkManager : MonoBehaviourPunCallbacks
-{
-    void Start() {
-        //
-    }
+public class NetworkManager : MonoBehaviourPunCallbacks {
+  public CinemachineFreeLook cam;
 
-    public override void OnJoinedRoom() {
-        PhotonNetwork.Instantiate("Player", new Vector3(0, 5, 10), Quaternion.identity);
-    }
+  void Start() {
+    GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(0, 1, 10), Quaternion.identity);
+    cam.LookAt = cam.Follow = player.transform;
+  }
 
-    public void Disconnect() {
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene("Lobby");
-    }
+  public void Disconnect() {
+    PhotonNetwork.LeaveRoom();
+    SceneManager.LoadScene("Lobby");
+  }
 
-    void Update() {
-        //
-    }
+  void Update() {
+    //
+  }
 }
