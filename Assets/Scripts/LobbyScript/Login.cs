@@ -21,8 +21,7 @@ public class Login : MonoBehaviour
         PlayerPasswd = PlayerPasswdText.text;
         // send to server for login
         // if correct ID/passwd, login
-        MainScript.GetComponent<Lobby>().WelcomePlayer.text
-            = "Welcome " + PlayerID;
+        //MainScript.GetComponent<Lobby>().WelcomePlayer.text = "Welcome " + PlayerID;
 
         LoginCanvas.SetActive(false);
         LobbyCanvas.SetActive(true);

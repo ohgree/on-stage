@@ -32,6 +32,7 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
     float vertical = Input.GetAxisRaw("Vertical");
     Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
     Vector3 moveDir = new Vector3();
+
     if (direction != Vector3.zero) {
       float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
       float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
