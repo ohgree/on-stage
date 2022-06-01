@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: 79530639-112c-4b54-a4c0-c0c21fbdab46
+    AppIdRealtime: 235f684c-10c3-406d-8f78-4b740967ef78
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 6c64adcd-e2b4-498f-88d2-6640d29ab51f
+    AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
     FixedRegion: 
@@ -39,9 +39,6 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - CantHearYou
-  - ChangeColour
-  - HeresWhy
   DisableAutoOpenWizard: 1
-  ShowSettings: 1
+  ShowSettings: 0
   DevRegionSetOnce: 1
