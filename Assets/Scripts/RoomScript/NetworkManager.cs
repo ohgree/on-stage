@@ -9,9 +9,15 @@ using Cinemachine;
 
 public class NetworkManager : MonoBehaviourPunCallbacks {
   public CinemachineFreeLook cam;
-  public GameObject PublicData;
+  public GameObject publicData;
 
   void Start() {
+    publicData = GameObject.FindGameObjectWithTag("PublicData");
+
+    PhotonNetwork.JoinOrCreateRoom(publicData.GetComponent<PublicData>().roomName, new RoomOptions{MaxPlayers=20}, null);
+  }
+
+  public override void OnJoinedRoom() {
     GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(0, 1, 10), Quaternion.identity);
     cam.LookAt = cam.Follow = player.transform;
   }
