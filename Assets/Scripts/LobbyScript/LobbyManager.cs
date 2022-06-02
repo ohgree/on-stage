@@ -9,11 +9,12 @@ using Photon.Realtime;
 public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
     private string gameVersion = "1";
-    public GameObject mainScript;
+    public GameObject mainScript, publicData;
 
     public Text connectionInfoText;
     public Button CreateRoomButton, EnterRoomButton;
-    public Text RoomName, RoomPasswd;
+    public Text RoomNameCreate, RoomPasswdCreate;
+    public Text RoomNameEnter, RoomPasswdEnter;
 
     public Transform RoomContent;
     public GameObject RoomEntityPrefeb;
@@ -28,6 +29,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         EnterRoomButton.interactable = false;
 
         connectionInfoText.text = "making connection to server";
+
+        DontDestroyOnLoad(publicData);
     }
 
     public override void OnConnectedToMaster() {
@@ -76,20 +79,40 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
 
     public void CreateRoom() {
-        string roomName = RoomName.text + "_" + RoomPasswd.text;
+        string roomName = RoomNameCreate.text + "_" + RoomPasswdCreate.text;
 
-        if(roomName[0] == '_') {
-            mainScript.GetComponent<MoveCanvas>().OpenError("Room Name Error", "Enter room name");
+        if(roomName[0] == '_') { // empty roomname
+            mainScript.GetComponent<MoveCanvas>().OpenError("Input Error", "Enter room name");
             return;
         }
-        else if(Rooms.ContainsKey(RoomName.text)) {
-            mainScript.GetComponent<MoveCanvas>().OpenError("Room Name Error", "Room name already exists");
+        else if(Rooms.ContainsKey(RoomNameCreate.text)) { // same roomname
+            mainScript.GetComponent<MoveCanvas>().OpenError("Room Create Error", "Room already exists");
             return;
         }
 
-        PhotonNetwork.CreateRoom(roomName, new RoomOptions{MaxPlayers=10}, null);
+        PhotonNetwork.CreateRoom(roomName, new RoomOptions{MaxPlayers=10});
 
         Debug.Log("enter room " + roomName);
+    }
+
+    public void EnterRoom() {
+        string roomName = RoomNameEnter.text + "_" + RoomPasswdEnter.text;
+
+        if(roomName[0] == '_') { // empty roomname
+            mainScript.GetComponent<MoveCanvas>().OpenError("Input Error", "Enter room name");
+            return;
+        }
+        else if(Rooms.ContainsKey(RoomNameEnter.text) == false) { // no matching roomname
+            mainScript.GetComponent<MoveCanvas>().OpenError("Room Enter Error", "No room with name and password");
+            return;
+        }
+        else if(false) { // wrong password
+            //
+            return;
+        }
+
+        PhotonNetwork.JoinRoom(roomName);
+        Debug.Log("join room " + roomName);
     }
 
     public override void OnJoinedRoom() {
