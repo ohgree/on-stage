@@ -90,9 +90,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
             return;
         }
 
-        PhotonNetwork.CreateRoom(roomName, new RoomOptions{MaxPlayers=10});
+        publicData.GetComponent<PublicData>().roomName = roomName;
 
-        Debug.Log("enter room " + roomName);
+        SceneManager.LoadScene("Auditorium");
     }
 
     public void EnterRoom() {
@@ -108,15 +108,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         }
         else if(false) { // wrong password
             //
-            return;
+            //return;
         }
 
-        PhotonNetwork.JoinRoom(roomName);
-        Debug.Log("join room " + roomName);
-    }
+        publicData.GetComponent<PublicData>().roomName = roomName;
 
-    public override void OnJoinedRoom() {
-        Debug.Log("Room Joined");
         SceneManager.LoadScene("Auditorium");
     }
 }
