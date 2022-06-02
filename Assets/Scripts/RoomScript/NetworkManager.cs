@@ -9,6 +9,7 @@ using Cinemachine;
 
 public class NetworkManager : MonoBehaviourPunCallbacks {
   public CinemachineFreeLook cam;
+  public GameObject PublicData;
 
   void Start() {
     GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(0, 1, 10), Quaternion.identity);
