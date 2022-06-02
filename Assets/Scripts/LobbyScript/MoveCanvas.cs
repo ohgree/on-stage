@@ -23,9 +23,11 @@ public class MoveCanvas : MonoBehaviour
         CreateRoomPopUp.SetActive(false);
     }
 
-    public void OpenError() {
+    public void OpenError(string name, string message) {
         // set error
-        ErrorPopUp.SetActive(false);
+        ErrorPopUp.transform.GetChild(2).gameObject.GetComponent<Text>().text = name;
+        ErrorPopUp.transform.GetChild(3).gameObject.GetComponent<Text>().text = message;
+        ErrorPopUp.SetActive(true);
     }
 
     public void CloseError() {

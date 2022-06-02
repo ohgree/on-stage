@@ -9,6 +9,7 @@ using Photon.Realtime;
 public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
     private string gameVersion = "1";
+    public GameObject mainScript;
 
     public Text connectionInfoText;
     public Button CreateRoomButton, EnterRoomButton;
@@ -63,7 +64,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
                 Rooms.TryGetValue(room.Name, out tempRoom);
                 Destroy(tempRoom);
                 Rooms.Remove(room.Name);
-                Debug.Log("aa");
             }
             else if(Rooms.ContainsKey(room.Name) == false) { // new room
                 tempRoom = Instantiate<GameObject>(RoomEntityPrefeb, Vector3.zero, Quaternion.identity, RoomContent);
@@ -79,11 +79,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         string roomName = RoomName.text + "_" + RoomPasswd.text;
 
         if(roomName[0] == '_') {
-            Debug.Log("input room name");
+            mainScript.GetComponent<MoveCanvas>().OpenError("Room Name Error", "Enter room name");
             return;
         }
         else if(Rooms.ContainsKey(RoomName.text)) {
-            Debug.Log("Room already exists");
+            mainScript.GetComponent<MoveCanvas>().OpenError("Room Name Error", "Room name already exists");
             return;
         }
 
@@ -91,6 +91,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         Debug.Log("enter room " + roomName);
     }
+
     public override void OnJoinedRoom() {
         Debug.Log("Room Joined");
         SceneManager.LoadScene("Auditorium");
