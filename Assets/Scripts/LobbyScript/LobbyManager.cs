@@ -12,15 +12,22 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     private string gameVersion = "1";
     public GameObject mainScript, publicData;
 
+    // connection state
     public Text connectionInfoText;
+    
+    // player name
+    public Text PlayerNameText;
+    public GameObject PlayerRenameInput, PlayerRenameInputField;
+
+    // room info
+    public Transform RoomContent;
+    public GameObject RoomEntityPrefeb;
+    public Dictionary<string, Tuple<string, GameObject> > Rooms = new Dictionary<string, Tuple<string, GameObject> >();
+
+    // create/enter room
     public Button CreateRoomButton, EnterRoomButton;
     public Text RoomNameCreate, RoomPasswdCreate;
     public Text RoomNameEnter, RoomPasswdEnter;
-
-    public Transform RoomContent;
-    public GameObject RoomEntityPrefeb;
-
-    public Dictionary<string, Tuple<string, GameObject> > Rooms = new Dictionary<string, Tuple<string, GameObject> >();
 
     void Start() {
         PhotonNetwork.GameVersion = gameVersion;
@@ -56,6 +63,25 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public override void OnLeftLobby() {
         Rooms.Clear();
+    }
+
+    public void PlayerRenameStart() {
+        PlayerRenameInput.SetActive(true);
+    }
+
+    public void PlayerRenameComplete() {
+        GameObject PlayerRenameInputText = PlayerRenameInputField.transform.GetChild(2).gameObject;
+        string newName = PlayerRenameInputText.GetComponent<Text>().text;
+
+        Debug.Log(newName);
+
+        if(newName.Length == 0)
+            return;
+
+        PlayerNameText.GetComponent<Text>().text = newName;
+        publicData.GetComponent<PublicData>().playerName = newName;
+        
+        PlayerRenameInput.SetActive(false);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList) {
