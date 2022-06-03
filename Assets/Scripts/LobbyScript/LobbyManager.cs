@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public Transform RoomContent;
     public GameObject RoomEntityPrefeb;
 
-    public Dictionary<string, GameObject> Rooms = new Dictionary<string, GameObject>();
+    public Dictionary<string, Tuple<string, GameObject> > Rooms = new Dictionary<string, Tuple<string, GameObject> >();
 
     void Start() {
         PhotonNetwork.GameVersion = gameVersion;
@@ -58,22 +59,24 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList) {
+        Tuple < string, GameObject > tempTuple = null;
         GameObject tempRoom = null;
 
         for(int i = 0; i < roomList.Count; i++) {
             RoomInfo room = roomList[i];
+            string namePart = room.Name.Split('_')[0];
+            string passPart = room.Name.Split('_')[1];
 
             if(room.RemovedFromList) { // deleted room
-                Rooms.TryGetValue(room.Name, out tempRoom);
-                Destroy(tempRoom);
-                Rooms.Remove(room.Name);
+                Rooms.TryGetValue(namePart, out tempTuple);
+                Destroy(tempTuple.Item2);
+                Rooms.Remove(namePart);
             }
-            else if(Rooms.ContainsKey(room.Name) == false) { // new room
+            else if(Rooms.ContainsKey(namePart) == false) { // new room
                 tempRoom = Instantiate<GameObject>(RoomEntityPrefeb, Vector3.zero, Quaternion.identity, RoomContent);
-                
-                tempRoom.transform.GetChild(0).gameObject.GetComponent<Text>().text = room.Name.Split('_')[0];
-
-                Rooms[room.Name.Split('_')[0]] = tempRoom;
+                tempRoom.transform.GetChild(0).gameObject.GetComponent<Text>().text = namePart;
+                tempTuple = new Tuple<string, GameObject>(passPart, tempRoom);
+                Rooms[namePart] = tempTuple;
             }
         }
     }
@@ -103,12 +106,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
             return;
         }
         else if(Rooms.ContainsKey(RoomNameEnter.text) == false) { // no matching roomname
-            mainScript.GetComponent<MoveCanvas>().OpenError("Room Enter Error", "No room with name and password");
+            mainScript.GetComponent<MoveCanvas>().OpenError("Room Enter Error", "No room with name input");
             return;
         }
-        else if(false) { // wrong password
-            //
-            //return;
+        else if(!Rooms[RoomNameEnter.text].Item1.Equals(RoomPasswdEnter.text)) { // wrong password
+            mainScript.GetComponent<MoveCanvas>().OpenError("Room Enter Error", "Wrong password");
+            return;
         }
 
         publicData.GetComponent<PublicData>().roomName = roomName;
