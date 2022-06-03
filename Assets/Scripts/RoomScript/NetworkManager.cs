@@ -19,7 +19,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 
   public override void OnJoinedRoom() {
     GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(0, 1, 10), Quaternion.identity);
+
     cam.LookAt = cam.Follow = player.transform;
+    player.GetComponentInChildren<TextMesh>().text = publicData.GetComponent<PublicData>().playerName;
   }
 
   public void Disconnect() {
