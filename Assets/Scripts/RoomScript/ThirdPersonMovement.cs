@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-
+using Cinemachine;
 public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
+  public bool UIMODE = false;
   public float speed = 6.0f;
   public float jumpHeight = 0.2f;
   public float gravityMultiplier = 0.5f;
   public float turnSmoothTime = 0.1f;
   public float dodgeSpeedMultiplier = 2.5f;
-
+  public GameObject cam;
   CharacterController controller;
   Animator animator;
 
@@ -21,6 +22,7 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
   private void Start() {
     controller = GetComponent<CharacterController>();
     animator = GetComponentInChildren<Animator>();
+    cam = GameObject.FindGameObjectWithTag("TPSCamera");
   }
 
   // Update is called once per frame
@@ -28,6 +30,20 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
     if (!photonView.IsMine) {
       return;
     }
+    //chagne UIMOE
+    if(Input.GetButtonDown("Cancel")){
+      if(UIMODE){
+        cam.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 2;
+        cam.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 300;
+      }
+      else{ // UIMODE = false
+        cam.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 0;
+        cam.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 0;
+      }
+      UIMODE = !UIMODE;
+      return;
+    }
+
     float horizontal = Input.GetAxisRaw("Horizontal");
     float vertical = Input.GetAxisRaw("Vertical");
     Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -64,12 +80,16 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
     }
     moveDir.y = ySpeed;
 
+    //Cancel 
+    
     controller.Move(moveDir * speed * Time.deltaTime);
     animator.SetBool("isMoving", direction != Vector3.zero);
+
   }
 
   void DodgeOut() {
     speed /= dodgeSpeedMultiplier;
     isDodging = false;
   }
+
 }
