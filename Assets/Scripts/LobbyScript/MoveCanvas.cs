@@ -22,9 +22,6 @@ public class MoveCanvas : MonoBehaviour
             return;
 
         CreateRoomPopUp.SetActive(true);
-
-        CreateRoomPopUp.transform.GetChild(3).GetChild(1).gameObject.GetComponent<Text>().text = "";
-        CreateRoomPopUp.transform.GetChild(5).GetChild(1).gameObject.GetComponent<Text>().text = "";
     }
 
     public void CloseCreateRoom() {
@@ -36,9 +33,6 @@ public class MoveCanvas : MonoBehaviour
             return;
 
         EnterRoomPopUp.SetActive(true);
-
-        EnterRoomPopUp.transform.GetChild(3).GetChild(1).gameObject.GetComponent<Text>().text = "";
-        EnterRoomPopUp.transform.GetChild(5).GetChild(1).gameObject.GetComponent<Text>().text = "";
     }
 
     public void CloseEnterRoom() {
