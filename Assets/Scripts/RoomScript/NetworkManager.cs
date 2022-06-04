@@ -8,13 +8,13 @@ using Photon.Realtime;
 using Cinemachine;
 
 public class NetworkManager : MonoBehaviourPunCallbacks {
-  public CinemachineFreeLook cam;
+  public CinemachineVirtualCameraBase cam;
   public GameObject publicData;
 
   void Start() {
     publicData = GameObject.FindGameObjectWithTag("PublicData");
 
-    PhotonNetwork.JoinOrCreateRoom(publicData.GetComponent<PublicData>().roomName, new RoomOptions{MaxPlayers=20}, null);
+    PhotonNetwork.JoinOrCreateRoom(publicData.GetComponent<PublicData>().roomName, new RoomOptions { MaxPlayers = 20 }, null);
   }
 
   public override void OnJoinedRoom() {
