@@ -5,5 +5,9 @@ using UnityEngine;
 public class PublicData : MonoBehaviour
 {
     public string roomName;
-    public string playerName = "PlayerName";
+    public string playerName;
+
+    void Start() {
+        playerName = "PlayerName";
+    }
 }
