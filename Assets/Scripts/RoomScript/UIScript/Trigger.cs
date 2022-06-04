@@ -12,7 +12,7 @@ public class Trigger : MonoBehaviour
         UploadButton.gameObject.SetActive(false);
     }
     void OnTriggerEnter(Collider other) {
-        if(other.gameObject.GetComponent<PhotonView>().ViewID == 1001){         
+        if(PhotonNetwork.IsMasterClient){         
             UploadButton.gameObject.SetActive(true);
         }
     }

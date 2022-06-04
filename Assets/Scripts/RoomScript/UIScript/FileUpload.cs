@@ -17,17 +17,19 @@ public class FileUpload : MonoBehaviour
             filePath = 내가 열 파일 디렉토리의 절대경로
             fileFullPath = 내가 열 파일의 절대경로
         */
-        
+        //Fileopen.Multiselect = true;
         DialogResult dr = Fileopen.ShowDialog();
-        Debug.Log("Showing Dialog");
-
+        //Debug.Log("Showing Dialog");
+        //Fileopen.SafeFileNames
+        
         if (dr == DialogResult.OK) {//ok 버튼 클릭시
             string fileName = Fileopen.SafeFileName; // name.extender
             string fileFullName = Fileopen.FileName; // path/name.extender
             string filePath = fileFullName.Replace(fileName, ""); // path
-            Debug.Log("filePath : " + filePath);
-            Debug.Log("fileFullName : " + fileFullName);
-            File.Copy(fileFullName, UnityEngine.Application.dataPath + "/Images/" + fileName);
+            //Debug.Log("filePath : " + filePath);
+            //Debug.Log("fileFullName : " + fileFullName);
+            //File.Copy(fileFullName, UnityEngine.Application.dataPath + "/Images/" + fileName);
+            Debug.Log(fileName.ToString());
         }
     }
 }
