@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34041b062c154ab38ba829ab6a3d5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIMODE: 0
   speed: 6
   jumpHeight: 0.2
   gravityMultiplier: 0.5
