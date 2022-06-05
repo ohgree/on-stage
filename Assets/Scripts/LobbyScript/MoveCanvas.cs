@@ -40,8 +40,8 @@ public class MoveCanvas : MonoBehaviour
     }
 
     public void OpenError(string name, string message) {
-        ErrorPopUp.transform.GetChild(2).gameObject.GetComponent<Text>().text = name;
-        ErrorPopUp.transform.GetChild(3).gameObject.GetComponent<Text>().text = message;
+        ErrorPopUp.transform.GetChild(3).gameObject.GetComponent<Text>().text = name;
+        ErrorPopUp.transform.GetChild(4).gameObject.GetComponent<Text>().text = message;
         ErrorPopUp.SetActive(true);
     }
 
