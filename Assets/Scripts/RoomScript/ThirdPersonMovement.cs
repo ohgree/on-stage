@@ -10,7 +10,6 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
   public float gravityMultiplier = 0.5f;
   public float turnSmoothTime = 0.1f;
   public float dodgeSpeedMultiplier = 2.5f;
-  public GameObject cam;
   CharacterController controller;
   Animator animator;
 
@@ -65,11 +64,11 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
       animator.SetTrigger("jump");
     }
     moveDir.y = ySpeed;
-
+    //Cancel 
+    
     controller.Move(moveDir * speed * Time.deltaTime);
     animator.SetBool("isMoving", direction != Vector3.zero);
   }
-
   void DodgeOut() {
     speed /= dodgeSpeedMultiplier;
     isDodging = false;

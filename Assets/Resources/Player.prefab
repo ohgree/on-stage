@@ -222,7 +222,6 @@ MonoBehaviour:
   gravityMultiplier: 0.5
   turnSmoothTime: 0.1
   dodgeSpeedMultiplier: 2.5
-  cam: {fileID: 0}
 --- !u!114 &5151672550135341237
 MonoBehaviour:
   m_ObjectHideFlags: 0
