@@ -14,19 +14,19 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
     /*
         0 : black
         1 : image
-        2~6 : ppt
+        2~5 : ppt
     */
 
-    int[] prevPage = {0, 0, 1, 2, 3, 4, 5};
-    int[] nextPage = {1, 2, 3, 4, 5, 6, 6};
+    int[] prevPage = {0, 0, 1, 2, 3, 4};
+    int[] nextPage = {1, 2, 3, 4, 5, 5};
 
-    //int[] prevPage = {0, 1, 2, 2, 3, 4, 5};
-    //int[] nextPage = {0, 1, 3, 4, 5, 6, 6};
+    //int[] prevPage = {0, 1, 2, 2, 3, 4};
+    //int[] nextPage = {0, 1, 3, 4, 5, 5};
 
     void Start() {
         screenPage = 0;
 
-        filePage["empty.jpg"] = 0;
+        filePage = new Dictionary<string, int >();
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
