@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587272, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14622,7 +14622,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1773085477}
   - component: {fileID: 1773085476}
-  - component: {fileID: 1773085478}
+  - component: {fileID: 1773085480}
+  - component: {fileID: 1773085479}
   m_Layer: 0
   m_Name: Main Projector
   m_TagString: Untagged
@@ -14670,15 +14671,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1e945b0b984c2ab408eb19f740d4dbbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.125, y: 2.875}
+  m_Size: {x: 9.6, y: 5.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1773085477
@@ -14695,7 +14696,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1773085478
+--- !u!114 &1773085479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14704,14 +14705,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773085475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878f1c74c5d9342f18bfd21b2a3bdb2b, type: 3}
+  m_Script: {fileID: 11500000, guid: d3d22678a923dee48ba33efc0c625497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenPage: 0
   sprites:
+  - {fileID: 21300000, guid: 1e945b0b984c2ab408eb19f740d4dbbd, type: 3}
+  - {fileID: 21300000, guid: e97048e2df9b2d746871fd4ad81b53cc, type: 3}
   - {fileID: 21300000, guid: 46d1bf559ebf044c29ac081c2ce68ff3, type: 3}
   - {fileID: 21300000, guid: 35a2df14f096743c2b3d728806e78f1a, type: 3}
   - {fileID: 21300000, guid: c5b300723cec747ee85b58f3d0f19646, type: 3}
   - {fileID: 21300000, guid: 0716ee16d6090489f96758ac64289088, type: 3}
+--- !u!114 &1773085480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773085475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1773085479}
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!850595691 &1811605958
 LightingSettings:
   m_ObjectHideFlags: 0
