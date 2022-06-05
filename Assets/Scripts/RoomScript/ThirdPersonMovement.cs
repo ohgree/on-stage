@@ -5,13 +5,11 @@ using Photon.Pun;
 using Cinemachine;
 
 public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
-  public bool UIMODE = false;
   public float speed = 6.0f;
   public float jumpHeight = 0.2f;
   public float gravityMultiplier = 0.5f;
   public float turnSmoothTime = 0.1f;
   public float dodgeSpeedMultiplier = 2.5f;
-  public GameObject cam;
   CharacterController controller;
   Animator animator;
 
@@ -23,7 +21,6 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
   private void Start() {
     controller = GetComponent<CharacterController>();
     animator = GetComponentInChildren<Animator>();
-    cam = GameObject.FindGameObjectWithTag("TPSCamera");
   }
 
   // Update is called once per frame
@@ -67,17 +64,13 @@ public class ThirdPersonMovement : MonoBehaviourPunCallbacks {
       animator.SetTrigger("jump");
     }
     moveDir.y = ySpeed;
-
     //Cancel 
     
     controller.Move(moveDir * speed * Time.deltaTime);
     animator.SetBool("isMoving", direction != Vector3.zero);
-
   }
-
   void DodgeOut() {
     speed /= dodgeSpeedMultiplier;
     isDodging = false;
   }
-
 }
