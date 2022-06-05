@@ -17,16 +17,20 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
         2~5 : ppt
     */
 
-    int[] prevPage = {0, 0, 1, 2, 3, 4};
-    int[] nextPage = {1, 2, 3, 4, 5, 5};
+    //int[] prevPage = {0, 0, 1, 2, 3, 4};
+    //int[] nextPage = {1, 2, 3, 4, 5, 5};
 
-    //int[] prevPage = {0, 1, 2, 2, 3, 4};
-    //int[] nextPage = {0, 1, 3, 4, 5, 5};
+    int[] prevPage = {0, 1, 2, 2, 3, 4};
+    int[] nextPage = {0, 1, 3, 4, 5, 5};
 
     void Start() {
         screenPage = 0;
+        ChangeTexture(0);
 
-        filePage = new Dictionary<string, int >();
+        filePage = new Dictionary<string, int>();
+        filePage["empty.jpg"] = 0;
+        filePage["sample_image.jpg"] = 1;
+        filePage["sample_ppt.ppt"] = 2;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
@@ -40,7 +44,7 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
         }
     }
 
-    private void ChangeTexture(int index) {
+    void ChangeTexture(int index) {
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         renderer.sprite = sprites[index];
 
@@ -51,11 +55,18 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
         screenPage = index;
     }
 
-    void Update() {
-        /*if(!PhotonNetwork.IsMasterClient) {
+    public void OnFileUpload(string fileName) {
+        if(!filePage.ContainsKey(fileName)) {
             return;
-        }*/
-    
+        }
+
+        int newPage = filePage[fileName];
+
+        if(newPage != screenPage)
+            ChangeTexture(newPage);
+    }
+
+    void Update() {    
         int changePage = screenPage;
         if(Input.GetButtonDown("Slide Prev"))
             changePage = prevPage[screenPage];
