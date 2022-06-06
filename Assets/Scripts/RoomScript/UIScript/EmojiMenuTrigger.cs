@@ -21,28 +21,8 @@ public class EmojiMenuTrigger : MonoBehaviour
         emojiSelectMenu.SetActive(visible);
     }
 
-    public void OnClickEmojiButton01(){
-        emojiIndex = 0;
-        Debug.Log("Emoji index =" + emojiIndex);
-    }
-    public void OnClickEmojiButton02(){
-        emojiIndex = 1;
-        Debug.Log("Emoji index =" + emojiIndex);
-    }
-    public void OnClickEmojiButton03(){
-        emojiIndex = 2;
-        Debug.Log("Emoji index =" + emojiIndex);
-    }
-    public void OnClickEmojiButton04(){
-        emojiIndex = 3;
-        Debug.Log("Emoji index =" + emojiIndex);
-    }
-    public void OnClickEmojiButton05(){
-        emojiIndex = 4;
-        Debug.Log("Emoji index =" + emojiIndex);
-    }
-    public void OnClickEmojiButton06(){
-        emojiIndex = 5;
+    public void OnClickEmojiButton(int index) {
+        emojiIndex = index;
         Debug.Log("Emoji index =" + emojiIndex);
     }
 
