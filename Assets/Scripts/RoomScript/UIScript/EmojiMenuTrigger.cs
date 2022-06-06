@@ -4,7 +4,6 @@ using UnityEngine;
 using Cinemachine;
 public class EmojiMenuTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject emojiSelectMenu;
     public GameObject emojiSelectEnableButton;
     bool visible;
@@ -15,14 +14,13 @@ public class EmojiMenuTrigger : MonoBehaviour
         emojiSelectEnableButton.SetActive(!visible);
         emojiSelectMenu.SetActive(visible);
     }
-    // Update is called once per frame
     public void OnClickEmojiSelectEnableButton(){
         visible = true;
         emojiSelectMenu.SetActive(visible);
     }
 
     public void OnClickEmojiButton(int index) {
-        emojiIndex = index;
+        emojiIndex = index - 1;
         Debug.Log("Emoji index =" + emojiIndex);
     }
 
