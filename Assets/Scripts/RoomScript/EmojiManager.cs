@@ -9,9 +9,11 @@ using Cinemachine;
 
 public class EmojiManager : MonoBehaviourPunCallbacks {
     bool sendEmoji;
-
+    bool isEmoji;
+    public Sprite[] emojis;
     void Start() {
         sendEmoji = false;
+        isEmoji = false;
     }
 
     public void OnClickEmojiButton(int index) {
@@ -37,15 +39,19 @@ public class EmojiManager : MonoBehaviourPunCallbacks {
             PhotonView playerPV = player.GetComponent<PhotonView>();
             if(playerPV.ViewID != viewID)
                 continue;
-
+            if(isEmoji)
+                return;
             StartCoroutine(ShowEmojiTimer(player, 3.0f, index));
         }
     }
     
     IEnumerator ShowEmojiTimer(GameObject myPlayer, float seconds, int index){
-        Debug.Log("emoji " + index + " on");
+        //if(isEmoji)
+        isEmoji = true;
+        myPlayer.GetComponentInChildren<SpriteRenderer>().sprite = emojis[index];
         yield return new WaitForSeconds(seconds);
-        Debug.Log("emoji " + index + " off");
+        isEmoji = false;
+        myPlayer.GetComponentInChildren<SpriteRenderer>().sprite = null;
         
         /*
         myPlayer.GetComponentInChildren<SpriteRenderer>().enabled = true;
