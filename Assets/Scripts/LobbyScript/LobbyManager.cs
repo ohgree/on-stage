@@ -22,7 +22,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     // room info
     public Transform RoomContent;
     public GameObject RoomEntityPrefeb;
-    public Dictionary<string, Tuple<string, GameObject> > Rooms = new Dictionary<string, Tuple<string, GameObject> >();
+    public Dictionary<string, Tuple<string, GameObject> > Rooms;
 
     // create/enter room
     public Button CreateRoomButton, EnterRoomButton;
@@ -35,6 +35,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         CreateRoomButton.interactable = false;
         EnterRoomButton.interactable = false;
+        Rooms = new Dictionary<string, Tuple<string, GameObject> >();
 
         connectionInfoText.text = "making connection to server";
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587272, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -849,7 +849,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78639406}
-  m_LocalRotation: {x: 0.060432587, y: -0.27225494, z: 0.017135529, w: 0.96017265}
+  m_LocalRotation: {x: 0.06871049, y: -0.27028453, z: -0.012165683, w: 0.96024853}
   m_LocalPosition: {x: 12.769175, y: 6.8544426, z: 3.4935513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3202,8 +3202,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.060432587, y: -0.27225494, z: 0.017135529, w: 0.96017265}
-  m_LocalPosition: {x: 12.769175, y: 6.8544426, z: 3.4935513}
+  m_LocalRotation: {x: 0.05817386, y: 0, z: 0, w: 0.9983065}
+  m_LocalPosition: {x: 0, y: 7.423, z: 1.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4437,7 +4437,7 @@ MonoBehaviour:
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
   unityMicrophoneDevice: 
-  photonMicrophoneDeviceId: -1
+  photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
   reliableMode: 0
@@ -10211,12 +10211,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269490963}
         m_TargetAssemblyTypeName: EmojiMenuTrigger, Assembly-CSharp
-        m_MethodName: OnClickEmojiButton02
-        m_Mode: 1
+        m_MethodName: OnClickEmojiButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11129,8 +11129,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &913810319
-Transform:
+--- !u!224 &913810319
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11144,6 +11144,11 @@ Transform:
   m_Father: {fileID: 875196987}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 524, y: -267}
+  m_SizeDelta: {x: -1048, y: -534}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &920790467
 GameObject:
   m_ObjectHideFlags: 0
@@ -11693,12 +11698,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269490963}
         m_TargetAssemblyTypeName: EmojiMenuTrigger, Assembly-CSharp
-        m_MethodName: OnClickEmojiButton03
-        m_Mode: 1
+        m_MethodName: OnClickEmojiButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13519,10 +13524,10 @@ RectTransform:
   m_Father: {fileID: 1269490962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 500, y: -215}
-  m_SizeDelta: {x: 109, y: 100}
+  m_SizeDelta: {x: -939, y: -434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271548701
 MonoBehaviour:
@@ -14275,9 +14280,9 @@ RectTransform:
   m_Father: {fileID: 913810319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 445, y: -258}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1460632630
@@ -14690,12 +14695,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269490963}
         m_TargetAssemblyTypeName: EmojiMenuTrigger, Assembly-CSharp
-        m_MethodName: OnClickEmojiButton06
-        m_Mode: 1
+        m_MethodName: OnClickEmojiButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14865,12 +14870,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269490963}
         m_TargetAssemblyTypeName: EmojiMenuTrigger, Assembly-CSharp
-        m_MethodName: OnClickEmojiButton05
-        m_Mode: 1
+        m_MethodName: OnClickEmojiButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15637,12 +15642,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269490963}
         m_TargetAssemblyTypeName: EmojiMenuTrigger, Assembly-CSharp
-        m_MethodName: OnClickEmojiButton04
-        m_Mode: 1
+        m_MethodName: OnClickEmojiButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23080,12 +23085,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269490963}
         m_TargetAssemblyTypeName: EmojiMenuTrigger, Assembly-CSharp
-        m_MethodName: OnClickEmojiButton01
-        m_Mode: 1
+        m_MethodName: OnClickEmojiButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
