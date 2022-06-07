@@ -7,7 +7,6 @@ public class EmojiMenuTrigger : MonoBehaviour
     public GameObject emojiSelectMenu;
     public GameObject emojiSelectEnableButton;
     bool visible;
-    int emojiIndex;
     void Start()
     {
         visible = false;
@@ -20,8 +19,7 @@ public class EmojiMenuTrigger : MonoBehaviour
     }
 
     public void OnClickEmojiButton(int index) {
-        emojiIndex = index - 1;
-        Debug.Log("Emoji index =" + emojiIndex);
+        Debug.Log("Emoji index =" + index);
     }
 
     public void OnClickCancelButton(){
