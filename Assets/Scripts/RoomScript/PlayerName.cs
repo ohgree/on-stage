@@ -17,10 +17,10 @@ public class PlayerName : MonoBehaviourPun
         if(PV.IsMine) {
             Name.color = Color.white;
         }
-        //
     } 
 
     void Update() {
-        transform.rotation = CurrentCamera.transform.rotation;
+        this.transform.rotation = CurrentCamera.transform.rotation;
+        
     }
 }
