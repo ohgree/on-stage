@@ -1,30 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
-public class EmojiMenuTrigger : MonoBehaviour
-{
-    public GameObject emojiSelectMenu;
-    public GameObject emojiSelectEnableButton;
-    bool visible;
-    void Start()
-    {
-        visible = false;
-        emojiSelectEnableButton.SetActive(!visible);
-        emojiSelectMenu.SetActive(visible);
-    }
-    public void OnClickEmojiSelectEnableButton(){
-        visible = true;
-        emojiSelectMenu.SetActive(visible);
-    }
+using UnityEngine.EventSystems;
+public class EmojiMenuTrigger : MonoBehaviour {
+  public GameObject menu;
+  public KeyCode triggerKey;
+  bool visible;
 
-    public void OnClickEmojiButton(int index) {
-        Debug.Log("Emoji index =" + index);
-    }
+  void Start() {
+    visible = false;
+    menu.SetActive(visible);
+  }
 
-    public void OnClickCancelButton(){
-        visible = false;
-        emojiSelectMenu.SetActive(visible);
-        emojiSelectEnableButton.SetActive(!visible);   
+  void Update() {
+    if (Input.GetKeyDown(triggerKey)) {
+      ShowMenu(true);
     }
+    if (Input.GetKeyUp(triggerKey)) {
+      ShowMenu(false);
+    }
+  }
+
+  void ShowMenu(bool visible) {
+    this.visible = visible;
+    menu.SetActive(visible);
+
+    Cursor.lockState = visible ? CursorLockMode.Confined : CursorLockMode.Locked;
+  }
+
+  public void HideMenu() {
+    ShowMenu(false);
+  }
 }

@@ -1,40 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
-using Photon.Realtime;
-using Cinemachine;
+using System.Linq;
 
 public class EmojiManager : MonoBehaviourPunCallbacks {
-    public Sprite[] emojis;
+  public Sprite[] emojis;
 
-    public void OnClickEmojiButton(int index) {
- 
-        foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
-            PhotonView playerPV = player.GetComponent<PhotonView>();
-            if(!playerPV.IsMine)
-                continue;
-            photonView.RPC("emoji", RpcTarget.All, playerPV.ViewID, index);
-            break;
-        }
-    }
+  public void OnClickEmojiButton(int index) {
+    var myPlayer = GameObject.FindGameObjectsWithTag("Player").ToList().Find(player => player.GetPhotonView().IsMine);
+    photonView.RPC("emoji", RpcTarget.All, myPlayer.GetComponent<PhotonView>().ViewID, index);
+  }
 
-    [PunRPC]
-    void emoji(int viewID, int index) {
-         foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
-            PhotonView playerPV = player.GetComponent<PhotonView>();
-            if(playerPV.ViewID != viewID)
-                continue;
+  [PunRPC]
+  void emoji(int viewID, int index) {
+    var myPlayer = GameObject.FindGameObjectsWithTag("Player").ToList().Find(player => player.GetPhotonView().ViewID == viewID);
+    StartCoroutine(ShowEmojiTimer(myPlayer, 3.0f, index));
+  }
 
-            StartCoroutine(ShowEmojiTimer(player, 3.0f, index));
-        }
-    }
-    
-    IEnumerator ShowEmojiTimer(GameObject myPlayer, float seconds, int index){
-        myPlayer.GetComponentInChildren<SpriteRenderer>().sprite = emojis[index];
-        yield return new WaitForSeconds(seconds);
-        myPlayer.GetComponentInChildren<SpriteRenderer>().sprite = null;
-    }
+  IEnumerator ShowEmojiTimer(GameObject myPlayer, float seconds, int index) {
+    myPlayer.GetComponentInChildren<SpriteRenderer>().sprite = emojis[index];
+    yield return new WaitForSeconds(seconds);
+    myPlayer.GetComponentInChildren<SpriteRenderer>().sprite = null;
+  }
 }

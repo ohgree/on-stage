@@ -12,14 +12,12 @@ public class UploadTrigger : MonoBehaviour {
   }
   void OnTriggerEnter(Collider other) {
     if (PhotonNetwork.IsMasterClient) {
-      Cursor.visible = true;
-      Cursor.lockState = CursorLockMode.None;
+      Cursor.lockState = CursorLockMode.Confined;
       UploadButton.gameObject.SetActive(true);
     }
   }
   void OnTriggerExit(Collider other) {
-    Cursor.visible = false;
-    Cursor.lockState = CursorLockMode.Confined;
+    Cursor.lockState = CursorLockMode.Locked;
     UploadButton.gameObject.SetActive(false);
   }
 }
