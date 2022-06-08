@@ -406,7 +406,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: e00995507c2406448b4c8429136104dd, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278255615
+    rgba: 4294967295
 --- !u!114 &6120092462068287925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: {fileID: 3352734425209537393}
+  mine: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+  other: {r: 1, g: 0.95686275, b: 0.38431373, a: 1}
 --- !u!1 &7284194870921125517
 GameObject:
   m_ObjectHideFlags: 0

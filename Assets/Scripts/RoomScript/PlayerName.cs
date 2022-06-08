@@ -4,23 +4,26 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PlayerName : MonoBehaviourPun
-{
-    PhotonView PV;
-    GameObject CurrentCamera;
-    public TextMesh Name;
-    
-    void Start() {
-        PV = photonView;
-        CurrentCamera = GameObject.FindGameObjectWithTag("MainCamera");
+public class PlayerName : MonoBehaviourPun {
+  PhotonView PV;
+  GameObject CurrentCamera;
+  public TextMesh Name;
+  public Color mine;
+  public Color other;
 
-        if(PV.IsMine) {
-            Name.color = Color.white;
-        }
-    } 
+  void Start() {
+    PV = photonView;
+    CurrentCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
-    void Update() {
-        this.transform.rotation = CurrentCamera.transform.rotation;
-        
+    if (PV.IsMine) {
+      Name.color = mine;
+    } else {
+      Name.color = other;
     }
+  }
+
+  void Update() {
+    this.transform.rotation = CurrentCamera.transform.rotation;
+
+  }
 }
