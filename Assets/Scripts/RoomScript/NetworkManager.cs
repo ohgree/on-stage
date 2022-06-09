@@ -8,7 +8,7 @@ using Photon.Realtime;
 using Cinemachine;
 public class NetworkManager : MonoBehaviourPunCallbacks {
   public CinemachineVirtualCameraBase cam;
-  public GameObject publicData;
+  public GameObject publicData, nameChanger;
   void Start() {
     publicData = GameObject.FindGameObjectWithTag("PublicData");
     PhotonNetwork.JoinOrCreateRoom(publicData.GetComponent<PublicData>().roomName, new RoomOptions { MaxPlayers = 20 }, null);
@@ -18,7 +18,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
     GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(0, 1, 10), Quaternion.identity);
 
     cam.LookAt = cam.Follow = player.transform;
-    player.GetComponentInChildren<TextMesh>().text = publicData.GetComponent<PublicData>().playerName;
+    //player.GetComponentInChildren<TextMesh>().text = publicData.GetComponent<PublicData>().playerName;
+    nameChanger.GetPhotonView().RPC("ChangePlayerName", RpcTarget.AllBuffered, player.GetPhotonView().ViewID, publicData.GetComponent<PublicData>().playerName);
   }
 
   public void Disconnect() {
