@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -922,7 +922,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78639406}
-  m_LocalRotation: {x: 0.060432587, y: -0.27225494, z: 0.017135533, w: 0.96017265}
+  m_LocalRotation: {x: 0.060432587, y: -0.27225494, z: 0.017135529, w: 0.96017265}
   m_LocalPosition: {x: 12.769175, y: 6.8544426, z: 3.4935513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3788,7 +3788,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -3839,8 +3839,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8435025, y: -6.3500004, z: -25.156292}
+  m_LocalRotation: {x: 0.060432587, y: -0.27225494, z: 0.017135529, w: 0.96017265}
+  m_LocalPosition: {x: 12.769175, y: 6.8544426, z: 3.4935513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5035,7 +5035,6 @@ GameObject:
   - component: {fileID: 673746564}
   - component: {fileID: 673746563}
   - component: {fileID: 673746565}
-  - component: {fileID: 673746566}
   m_Layer: 0
   m_Name: VoiceManager
   m_TagString: VoiceManager
@@ -5075,7 +5074,7 @@ MonoBehaviour:
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
   unityMicrophoneDevice: 
-  photonMicrophoneDeviceId: -1
+  photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
   reliableMode: 0
@@ -5121,7 +5120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisconnectAfterKeepAlive: 0
   KeepAliveInBackground: 60000
-  ApplyDontDestroyOnLoad: 1
+  ApplyDontDestroyOnLoad: 0
   logLevel: 1
   enableSupportLogger: 0
   updateInterval: 50
@@ -5183,14 +5182,6 @@ MonoBehaviour:
   UseOnAudioConfigurationChanged: 1
   Android_AlwaysHandleDeviceChange: 0
   iOS_AlwaysHandleDeviceChange: 0
---- !u!81 &673746566
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673746561}
-  m_Enabled: 0
 --- !u!1001 &700636491
 PrefabInstance:
   m_ObjectHideFlags: 0

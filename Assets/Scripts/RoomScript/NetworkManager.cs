@@ -6,14 +6,11 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using Cinemachine;
-
 public class NetworkManager : MonoBehaviourPunCallbacks {
   public CinemachineVirtualCameraBase cam;
   public GameObject publicData;
-
   void Start() {
     publicData = GameObject.FindGameObjectWithTag("PublicData");
-
     PhotonNetwork.JoinOrCreateRoom(publicData.GetComponent<PublicData>().roomName, new RoomOptions { MaxPlayers = 20 }, null);
   }
 
@@ -25,6 +22,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
   }
 
   public void Disconnect() {
+    Destroy(publicData);
     PhotonNetwork.LeaveRoom();
     SceneManager.LoadScene("Lobby");
   }

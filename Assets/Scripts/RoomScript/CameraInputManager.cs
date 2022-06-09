@@ -6,7 +6,6 @@ using Cinemachine;
 public class CameraInputManager : MonoBehaviour {
   public List<CinemachineVirtualCameraBase> cams;
   int activeIndex = -1;
-  bool show = false;
 
   // Start is called before the first frame update
   void Start() {
