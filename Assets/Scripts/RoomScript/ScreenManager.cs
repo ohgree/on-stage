@@ -17,11 +17,8 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
         2~5 : ppt
     */
 
-    //int[] prevPage = {0, 0, 1, 2, 3, 4};
-    //int[] nextPage = {1, 2, 3, 4, 5, 5};
-
-    int[] prevPage = {0, 1, 2, 2, 3, 4};
-    int[] nextPage = {0, 1, 3, 4, 5, 5};
+    bool[] leftEnd;
+    bool[] rightEnd;
 
     void Start() {
         screenPage = 0;
@@ -29,8 +26,14 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
 
         filePage = new Dictionary<string, int>();
         filePage["empty.jpg"] = 0;
-        filePage["sample_image.jpg"] = 1;
-        filePage["sample_ppt.ppt"] = 2;
+        filePage["Logo.png"] = 1;
+        filePage["EvenBetter.ppt"] = 2;
+        
+        leftEnd = new bool[34];
+        rightEnd = new bool[34];
+        leftEnd[0] = leftEnd[1] = leftEnd[2] = true;
+        rightEnd[0] = rightEnd[1] = rightEnd[33] = true;
+
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
@@ -68,10 +71,10 @@ public class ScreenManager : MonoBehaviourPunCallbacks, IPunObservable {
 
     void Update() {    
         int changePage = screenPage;
-        if(Input.GetButtonDown("Slide Prev"))
-            changePage = prevPage[screenPage];
-        else if(Input.GetButtonDown("Slide Next"))
-            changePage = nextPage[screenPage];
+        if(Input.GetButtonDown("Slide Prev") && !leftEnd[screenPage])
+            changePage--;
+        else if(Input.GetButtonDown("Slide Next") && !rightEnd[screenPage])
+            changePage++;
         
         if(changePage != screenPage)
             ChangeTexture(changePage);
