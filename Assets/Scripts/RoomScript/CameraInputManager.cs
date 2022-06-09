@@ -4,7 +4,9 @@ using UnityEngine;
 using Cinemachine;
 
 public class CameraInputManager : MonoBehaviour {
+  public KeyCode hotkey;
   public List<CinemachineVirtualCameraBase> cams;
+
   int activeIndex = -1;
 
   // Start is called before the first frame update
@@ -16,8 +18,7 @@ public class CameraInputManager : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if (Input.GetButtonDown("Show Next Camera")) {
-      Debug.Log("Show next cam");
+    if (Input.GetKeyDown(hotkey)) {
       ShowNextCam();
     }
   }
