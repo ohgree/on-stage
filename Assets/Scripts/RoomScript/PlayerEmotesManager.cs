@@ -17,8 +17,20 @@ public class PlayerEmotesManager : MonoBehaviourPunCallbacks {
     }
     if (Input.GetKeyDown(KeyCode.Alpha1)) {
       animator.SetTrigger("hello");
-    } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+    }
+    if (Input.GetKeyDown(KeyCode.Alpha2)) {
       animator.SetTrigger("attention");
+    }
+    if (Input.GetKeyDown(KeyCode.Alpha3)) {
+      animator.SetTrigger("talk");
+    }
+    if (Input.GetKeyDown(KeyCode.C)) {
+      animator.SetBool("isClapping", true);
+    } else if (Input.GetKeyUp(KeyCode.C)) {
+      animator.SetBool("isClapping", false);
+    }
+    if (Input.GetKeyDown(KeyCode.E)) {
+      animator.SetBool("isSitting", !animator.GetBool("isSitting"));
     }
   }
 }
