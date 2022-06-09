@@ -1064,11 +1064,14 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: attention
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isSitting
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isClapping
+  - Type: 9
+    SynchronizeType: 1
+    Name: talk
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
