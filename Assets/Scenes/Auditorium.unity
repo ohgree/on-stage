@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5156,7 +5156,7 @@ MonoBehaviour:
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
   unityMicrophoneDevice: 
-  photonMicrophoneDeviceId: 0
+  photonMicrophoneDeviceId: -1
   interestGroup: 0
   debugEchoMode: 0
   reliableMode: 0
@@ -17703,11 +17703,39 @@ MonoBehaviour:
   screenPage: 0
   sprites:
   - {fileID: 21300000, guid: 1e945b0b984c2ab408eb19f740d4dbbd, type: 3}
-  - {fileID: 21300000, guid: e97048e2df9b2d746871fd4ad81b53cc, type: 3}
+  - {fileID: 21300000, guid: ced7f46aefcf6f54aab23d8ae9e9d7d6, type: 3}
   - {fileID: 21300000, guid: 46d1bf559ebf044c29ac081c2ce68ff3, type: 3}
   - {fileID: 21300000, guid: 35a2df14f096743c2b3d728806e78f1a, type: 3}
   - {fileID: 21300000, guid: c5b300723cec747ee85b58f3d0f19646, type: 3}
   - {fileID: 21300000, guid: 0716ee16d6090489f96758ac64289088, type: 3}
+  - {fileID: 21300000, guid: 88d66f6458b63ea4d9cfd146846c05e5, type: 3}
+  - {fileID: 21300000, guid: 45a079ad62548014eae1b38f6707741d, type: 3}
+  - {fileID: 21300000, guid: 5343ecb90cd2e094dbbe1994b3ae6155, type: 3}
+  - {fileID: 21300000, guid: b379e4bf96a24d64ab5e76c7fd2671cf, type: 3}
+  - {fileID: 21300000, guid: eff02523582624947bd4dc44956f7fbf, type: 3}
+  - {fileID: 21300000, guid: a7936cd5f470672418079d0315beaed2, type: 3}
+  - {fileID: 21300000, guid: 75f40069c5a1d564cae2e8697bc7008a, type: 3}
+  - {fileID: 21300000, guid: f1df510f781e06c46a1767305184d8f4, type: 3}
+  - {fileID: 21300000, guid: 091ac213d3ec73f40a0f7bf177af4a45, type: 3}
+  - {fileID: 21300000, guid: c9ab6da9852e82547b165988416dcc24, type: 3}
+  - {fileID: 21300000, guid: d91df56e683392a418a7769c3614358a, type: 3}
+  - {fileID: 21300000, guid: 60b5e556966709e44836bde4ab9d4c97, type: 3}
+  - {fileID: 21300000, guid: 59fe34da41c551d4d9b2c08b03a41d3a, type: 3}
+  - {fileID: 21300000, guid: 85b1d1ae55a42864a9dc880cb4666892, type: 3}
+  - {fileID: 21300000, guid: 8f2237d6fcabafa46aa98c6623655c92, type: 3}
+  - {fileID: 21300000, guid: f8f13ca6f8790af4387aee2b6ff05e95, type: 3}
+  - {fileID: 21300000, guid: 032bf3730d711e34bbb796ece143a4de, type: 3}
+  - {fileID: 21300000, guid: 0becbfd8c47b68f49ba2d75a8b69cec5, type: 3}
+  - {fileID: 21300000, guid: 16ac85a4887ce6c48bbe5fb40f03b92d, type: 3}
+  - {fileID: 21300000, guid: fa74baac38979ca4e8117c276096d9d6, type: 3}
+  - {fileID: 21300000, guid: 71d87e6efd729434c88e4132f8c82d13, type: 3}
+  - {fileID: 21300000, guid: cbef6e7faa417ce4fb945e3d7235f6a0, type: 3}
+  - {fileID: 21300000, guid: b718979b61e3405498819c910e3f796a, type: 3}
+  - {fileID: 21300000, guid: f8ed5024eb83d784c9f4c9f0d3e16a64, type: 3}
+  - {fileID: 21300000, guid: 2a78e9eedfe0a784c8d2deb65c0f2a0e, type: 3}
+  - {fileID: 21300000, guid: c94e98d518b4d0c4182e97ed3586f412, type: 3}
+  - {fileID: 21300000, guid: 48635b152e5f5a641920396d05c4ffa7, type: 3}
+  - {fileID: 21300000, guid: 1e945b0b984c2ab408eb19f740d4dbbd, type: 3}
 --- !u!114 &1773085480
 MonoBehaviour:
   m_ObjectHideFlags: 0
